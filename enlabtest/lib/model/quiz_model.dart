@@ -1,4 +1,7 @@
+import 'package:html_unescape/html_unescape.dart';
+
 class QuizModel {
+  static HtmlUnescape unescape = HtmlUnescape();
   String category;
   String type;
   String difficulty;
@@ -19,9 +22,11 @@ class QuizModel {
         json["category"],
         json["type"],
         json["difficulty"],
-        json["question"],
-        json["correct_answer"],
-        json["incorrect_answers"].map<String>((e) => e.toString()).toList());
+        unescape.convert(json["question"]),
+        unescape.convert(json["correct_answer"]),
+        json["incorrect_answers"]
+            .map<String>((e) => unescape.convert(e.toString()))
+            .toList());
   }
 
   Map<String, dynamic> toJson({int depth = 0}) => {

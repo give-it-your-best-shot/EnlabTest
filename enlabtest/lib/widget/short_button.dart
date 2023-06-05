@@ -26,9 +26,15 @@ class ShortButton extends StatelessWidget {
         height: 40.0,
         width: 110,
         decoration: BoxDecoration(
-          color: shortButtonColor,
-          borderRadius: BorderRadius.circular(50.0),
-        ),
+            color: shortButtonColor,
+            borderRadius: BorderRadius.circular(50.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black87.withOpacity(0.4),
+                blurRadius: 16,
+                offset: Offset(7, 6), // Shadow position
+              ),
+            ]),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

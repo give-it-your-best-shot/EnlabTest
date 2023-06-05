@@ -9,10 +9,9 @@ Widget LongButton(
     required Color color,
     required Function() onTap,
     required num selected,
-    required IconData icon
-    }) {
+    required IconData icon}) {
   return GestureDetector(
-    onTap:  onTap,
+    onTap: onTap,
     child: Container(
       padding: EdgeInsets.only(left: 18, right: 18),
       margin: EdgeInsets.only(top: 12, bottom: 12, left: 20, right: 20),
@@ -50,6 +49,17 @@ Widget NextButton({required String txt, required Function() onTap}) {
             borderRadius: BorderRadius.circular(50), color: shortButtonColor),
         child: Container(
           alignment: Alignment.center,
+          decoration: BoxDecoration(
+              color: shortButtonColor,
+              borderRadius: BorderRadius.circular(50.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black87.withOpacity(0.3),
+                  blurRadius: 13,
+                  spreadRadius: 5.0,
+                  offset: Offset(9, 12), // Shadow position
+                ),
+              ]),
           width: 245,
           child: Text(
             txt,
